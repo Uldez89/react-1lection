@@ -9,11 +9,11 @@ export function prepareCalendarInfo(date) {
     const weekday = moment(date).format('dddd');
     info.weekday = weekday.charAt(0).toUpperCase() + weekday.slice(1);
 
-    const dateMonth = moment(date).format('DD MMMM').split('');
+    const dateMonth = moment(date).format('DD MMMM').split(' ');
     info.date = dateMonth[0];
-    info.mounthCase = dateMonth[1];
+    info.monthCase = dateMonth[1];
 
-    info.mounth = moment(date).format('MMMM');
+    info.month = moment(date).format('MMMM');
     info.year = moment(date).format('YYYY');
 
     return info;
@@ -28,13 +28,11 @@ function createCalendarData(date) {
     const currentMonth = moment(now).format('MMMM');
 
     const firstDayOfMonth = moment(now).startOf('month');
-
+    
     const calendarStart = moment(firstDayOfMonth).subtract(firstDayOfMonth.day() - 1, 'days');
-    //console.log(calendarStart.format());
 
     const lastDayOfMonth = moment(now).endOf('month').startOf('date');
     const nextMonth = moment(firstDayOfMonth).add(1, 'months').format('MMMM');
-    //console.log(nextMonth);
 
     const calendar = [];
     let currentDay = calendarStart;

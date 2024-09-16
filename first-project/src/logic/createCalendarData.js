@@ -26,11 +26,10 @@ function createCalendarData(date) {
     const now = moment(date).startOf('date');
     const nowDay = now.format('DD.MM');
     const currentMonth = moment(now).format('MMMM');
-
     const firstDayOfMonth = moment(now).startOf('month');
     
     const calendarStart = moment(firstDayOfMonth).subtract(firstDayOfMonth.day() - 1, 'days');
-
+    console.log();
     const lastDayOfMonth = moment(now).endOf('month').startOf('date');
     const nextMonth = moment(firstDayOfMonth).add(1, 'months').format('MMMM');
 

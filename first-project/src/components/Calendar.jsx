@@ -47,7 +47,7 @@ console.log(weeks);
                     </tr>
                 </thead>
                 <tbody >
-                    <tr>
+                    {/* <tr>
                         <td className="ui-datepicker-other-month">27</td>
                         <td className="ui-datepicker-other-month">28</td>
                         <td>1</td>
@@ -63,14 +63,16 @@ console.log(weeks);
                         <td>9</td>
                         <td>10</td>
                         <td>11</td>
-                        <td>12</td>
-                    </tr>
-                    
+                        <td></td>
+                    </tr> */}
+                    {weeks.map((w) => <tr key={w.key}>
+                        {w.map((d) => <td key = { d.key} className = {d.class}> {d.date} </td>)}
+                    </tr>)}
                 </tbody>
             </table>
         </div>
     );
-                                    
-
-
+}
+Calendar.propTypes = {
+    date: PropTypes.instanceOf(Date).isRequired
 }
